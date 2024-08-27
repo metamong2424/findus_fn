@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Layout from "./Components/layout";
+import MainPage from "./Pages/mainPage";
+// 다른 페이지 컴포넌트들도 여기에 import 합니다
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          {/* 다른 라우트들을 여기에 추가합니다 */}
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
